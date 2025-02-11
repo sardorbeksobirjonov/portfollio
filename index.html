@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio</title>
+    <style>
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px red; }
+            50% { box-shadow: 0 0 20px red; }
+            100% { box-shadow: 0 0 5px red; }
+        }
+        .glow-effect:hover {
+            animation: glow 1.5s infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-black text-white flex flex-col items-center justify-center min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="w-full p-6 flex justify-between items-center fixed top-0 left-0 bg-black bg-opacity-80">
+        <h1 class="text-3xl font-bold text-red-500">Sardor</h1>
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-white text-3xl">☰</button>
+        </div>
+        <ul id="menu" class="hidden md:flex gap-6 text-lg font-bold">
+            <li><a href="index.html" class="hover:text-red-500">Home</a></li>
+            <li><a href="Aboute.html" class="hover:text-red-500">Aboute</a></li>
+            <li><a href="Servike.html" class="hover:text-red-500">Services</a></li>
+            <li><a href="mywork.html" class="hover:text-red-500">Education</a></li>
+            <li><a href="cantact.html" class="hover:text-red-500">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="flex flex-col md:flex-row items-center justify-center gap-12 mt-24 p-6">
+        <div class="relative">
+            <img src="men.png" alt="Profile" class="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover border-4 border-red-500 shadow-lg">
+        </div>
+        <div class="text-center md:text-left">
+            <h2 class="text-5xl font-bold">Hi, It's <span class="text-red-500">Sardor</span></h2>
+            <p class="text-2xl mt-2 font-semibold">I'm a <span class="text-red-500">Web developer</span></p>
+            <p class="text-gray-400 mt-4 max-w-lg">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt non accusantium nemo amet dolores temporibus.
+            </p>
+            <div class="flex gap-6 mt-6 justify-center md:justify-start">
+                <a href="#" class="text-red-500 text-4xl glow-effect"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-red-500 text-4xl glow-effect"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-red-500 text-4xl glow-effect"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-red-500 text-4xl glow-effect"><i class="fab fa-twitter"></i></a>
+            </div>
+            <button class="mt-6 bg-red-500 px-8 py-3 rounded text-white font-bold text-lg hover:bg-red-600 glow-effect">
+                Hire me
+            </button>
+        </div>
+    </main>
+    
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Sardorbek Sobirjonov</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .service-card {
+            transform: translateY(30px) scale(0.95);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /* Animatsiyalar */
+        .service-card.show-up {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .service-card.show-left {
+            transform: translateX(-30px) scale(1);
+            opacity: 1;
+        }
+
+        .service-card.show-right {
+            transform: translateX(30px) scale(1);
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Sardorbek Sobirjonov</h1>
+            <button id="menu-btn" class="md:hidden px-4 py-2 bg-gray-200 rounded-lg">Menu</button>
+            <ul id="menu" class="hidden md:flex space-x-4 md:static absolute top-16 left-0 w-full bg-white md:bg-transparent md:w-auto flex-col md:flex-row items-center">
+                <a href="index.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Home</li></a>
+                <a href="Aboute.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">About</li></a>
+                <a href="mywork.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Portfolio</li></a>
+                <a href="Servike.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Services</li></a>
+                <a href="cantact.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Contact</li></a>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-4xl font-bold mb-8">Xizmatlarim</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="service-card bg-white p-6 rounded-lg shadow-lg transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721265.png" alt="Web Development" class="mx-auto mb-4 w-20">
+                <h3 class="text-xl font-semibold">Web Dasturlash</h3>
+                <p class="text-gray-600">Zamonaviy, responsiv va tezkor web-saytlar yarataman.</p>
+            </div>
+            <div class="service-card bg-white p-6 rounded-lg shadow-lg transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/2972/2972533.png" alt="Bot Development" class="mx-auto mb-4 w-20">
+                <h3 class="text-xl font-semibold">Telegram Botlar</h3>
+                <p class="text-gray-600">Avtomatlashtirilgan va qulay botlar yaratish xizmatini taklif qilaman.</p>
+            </div>
+            <div class="service-card bg-white p-6 rounded-lg shadow-lg transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/7542/7542175.png" alt="SEO Optimization" class="mx-auto mb-4 w-20">
+                <h3 class="text-xl font-semibold">SEO Xizmatlari</h3>
+                <p class="text-gray-600">Saytingizni Google’da yuqori pog‘onalarga chiqarishga yordam beraman.</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div class="service-card bg-white p-6 rounded-lg shadow-lg transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/3523/3523266.png" alt="Graphic Design" class="mx-auto mb-4 w-20">
+                <h3 class="text-xl font-semibold">Grafik Dizayn</h3>
+                <p class="text-gray-600">Professional bannerlar, logotiplar va grafik dizayn xizmatlari.</p>
+            </div>
+            <div class="service-card bg-white p-6 rounded-lg shadow-lg transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/2463/2463510.png" alt="Mobile Apps" class="mx-auto mb-4 w-20">
+                <h3 class="text-xl font-semibold">Mobil Ilovalar</h3>
+                <p class="text-gray-600">Android va iOS uchun qulay va zamonaviy mobil ilovalar yarataman.</p>
+            </div>
+            <div class="service-card bg-white p-6 rounded-lg shadow-lg transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png" alt="Digital Marketing" class="mx-auto mb-4 w-20">
+                <h3 class="text-xl font-semibold">Raqamli Marketing</h3>
+                <p class="text-gray-600">Brendingizni internetda targ'ib qilish bo‘yicha xizmatlar.</p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-up');
+                    if (entry.target.classList.contains('service-card:nth-child(2)')) {
+                        entry.target.classList.add('show-left');
+                    } else if (entry.target.classList.contains('service-card:nth-child(3)')) {
+                        entry.target.classList.add('show-right');
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        serviceCards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

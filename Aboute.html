@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Sardorbek Sobirjonov</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fullscreen-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .fullscreen-img img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        .profile-container {
+            perspective: 1000px;
+        }
+        .profile-img {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease-in-out;
+        }
+        .profile-img:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Sardorbek Sobirjonov</h1>
+            <button id="menu-btn" class="md:hidden px-4 py-2 bg-gray-200 rounded-lg">Menu</button>
+            <ul id="menu" class="hidden md:flex space-x-4 md:space-x-4 md:static absolute top-16 left-0 w-full bg-white md:bg-transparent md:w-auto flex-col md:flex-row items-center">
+                <a href="index.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Home</li></a>
+                <a href="Aboute.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">About</li></a>
+                <a href="mywork.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Portfolio</li></a>
+                <a href="Servike.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Services</li></a>
+                <a href="cantact.html"><li class="nav-item px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer">Contact</li></a>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-1/2 flex justify-center profile-container">
+                <img src="men.png" alt="Sardorbek Sobirjonov" class="profile-img rounded-lg shadow-lg w-3/4 cursor-pointer" id="profile-img">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-bold mb-4">Men haqimda</h2>
+                <p class="text-lg text-gray-700">Men Sardorbek Sobirjonov, professional web dasturchiman. Frontend va backend sohasida tajribaga egaman va zamonaviy texnologiyalar bilan ishlashni yaxshi ko‘raman.</p>
+                <p class="mt-4 text-lg text-gray-700">Web ilovalar, saytlar va avtomatlashtirilgan tizimlar yaratish bo‘yicha tajribaga egaman. Maqsadim – sifatli va samarali dasturlar yaratish.</p>
+            </div>
+        </div>
+    </section>
+    
+    <div id="fullscreen-container" class="hidden fullscreen-img" onclick="this.classList.add('hidden')">
+        <img id="fullscreen-img" src="" alt="">
+    </div>
+    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        const profileImg = document.getElementById('profile-img');
+        const fullscreenContainer = document.getElementById('fullscreen-container');
+        const fullscreenImg = document.getElementById('fullscreen-img');
+        
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        
+        profileImg.addEventListener('click', () => {
+            fullscreenImg.src = profileImg.src;
+            fullscreenContainer.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
